@@ -90,16 +90,9 @@ for model, batchsize in graphTitles.items():
         arr.append(np.ravel(i))
     plt.boxplot(arr, labels= finaldict.keys(), vert=False)    
     plt.tight_layout()
-    plt.savefig("test.png")
+    plt.savefig(f"{model}_{batchsize}.png")
     plt.show()
 
 
-
-models = graphTitles.keys() #list of models
-vals = graphTitles.values() #dict in form box title : values
-
-#print(dict(vals).values()) # {batchsize : {boxname : values} }
-#print(dict(dict(vals).values()).keys())
-#box = plt.boxplot(graphTitles.keys().keys(), labels=graphTitles.keys().values(), vert=False)
 
 subprocess.run(f"rm {outdir}tempout.csv", shell=True)
